@@ -1,5 +1,6 @@
 .sidebar{
     flex: 3;
+    height: fit-content;
     margin: 20px;
     padding-bottom: 30px;
     background-color: #fdfbfb;
@@ -46,7 +47,7 @@
     display: inline-block;
     width: 50%;
     margin-top: 15px;
-    cursor: point;
+    cursor: pointer;
 }
 
 .sidebarSocial{
