@@ -2,12 +2,13 @@ import { Link } from "react-router-dom"
 import "./post.css"
 
 export default function Post({ post }) {
-    const publicFolder = "http://localhost:5000/images/"
+    const apiPublicFolder = process.env.REACT_APP_PUBLIC_FOLDER
 
+    console.log([post])
     return (
         <div className="post">
             {post.photo && (
-                <img className="postImg" src={publicFolder + post.photo} alt="" />
+                <img className="postImg" src={`${apiPublicFolder}` + post.photo} alt="" />
             )}
             <div className="postInfo">
                 <div className="postCats">

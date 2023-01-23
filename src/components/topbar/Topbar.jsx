@@ -5,7 +5,7 @@ import "./topbar.css"
 
 export default function Topbar() {
     const { user, dispatch } = useContext(Context)
-    const publicFolder = "http://localhost:5000/images/"
+    const apiPublicFolder = process.env.REACT_APP_PUBLIC_FOLDER
 
     const handleLogout = () => {
         dispatch({ type: "LOGOUT" })
@@ -43,7 +43,7 @@ export default function Topbar() {
                 {
                     user ? (
                         <Link to="/settings">
-                            <img className="topImg" src={publicFolder + user.profilePic} alt="" />
+                            <img className="topImg" src={apiPublicFolder + user.profilePic} alt="" />
                         </Link>
                     ) : (
                         <ul className="topList">

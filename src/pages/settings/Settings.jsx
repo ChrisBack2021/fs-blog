@@ -6,7 +6,8 @@ import axios from "axios"
 
 export default function Settings() {
     const { user, dispatch } = useContext(Context)
-    const publicFolder = "http://localhost:5000/images/"
+    const apiPublicFolder = process.env.REACT_APP_PUBLIC_FOLDER
+    const api = process.env.REACT_APP_BACKEND_SERVER
 
 
     const [file, setFile] = useState(null)
@@ -31,7 +32,7 @@ export default function Settings() {
             data.append("file", file)
             updatedUser.profilePic = filename
             try {
-                await axios.post("http://localhost:5000/api/upload", data)
+                await axios.post(`${api}/upload`, data)
             } catch (error) {
                 console.log(error)
             }
@@ -56,7 +57,7 @@ console.log(user)
                 <form className="settingsForm" onSubmit={handleSubmit}>
                     <label>Profile Picture</label>
                     <div className="settingsPP">
-                        <img src={file ? URL.createObjectURL(file) : publicFolder + user.profilePic } alt="" />
+                        <img src={file ? URL.createObjectURL(file) : apiPublicFolder + user.profilePic } alt="" />
                         <label htmlFor="fileInput">
                             <i className="settingsPPIcon fa-solid fa-user"></i>
                         </label>

@@ -8,9 +8,12 @@ export default function Write() {
     const [title, setTitle] = useState("")
     const [desc, setDesc] = useState("")
     const [file, setFile] = useState(null)
-    const {user} = useContext(Context)
+    const { user } = useContext(Context)
+    
+
 
     const handleSubmit = async (e) => {
+        const api = process.env.REACT_APP_BACKEND_SERVER // || "http://localhost:5000/api"
         e.preventDefault()
         const newPost = {
             username: user.username,
@@ -24,18 +27,18 @@ export default function Write() {
             data.append("file", file)
             newPost.photo = filename
             try {
-                await axios.post("http://localhost:5000/api/upload", data)
+                await axios.post(`${api}/upload`, data)
             } catch (error) {
                 console.log(error)
         }
         try {
-            const res = await axios.post("http://localhost:5000/api/posts", newPost)
+            const res = await axios.post(`${api}/posts`, newPost)
             window.location.replace("http://localhost:3000/post/" + res.data._id)
         } catch (error) {
                 console.log(error)
         }
         }
-        axios.post("http://localhost:5000/api/posts")
+        axios.post(`${api}/posts`)
     }
 
   return (

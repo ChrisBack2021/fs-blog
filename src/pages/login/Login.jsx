@@ -10,11 +10,13 @@ export default function Login() {
   const passwordRef = useRef()
   const { dispatch, isFetching } = useContext(Context)
 
+  const api = process.env.REACT_APP_BACKEND_SERVER || "http://localhost:5000/api"
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     dispatch({ type: "LOGIN_START" })
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", {
+      const res = await axios.post(`${api}/auth/login`, {
         username: userRef.current.value,
         password: passwordRef.current.value
       })
