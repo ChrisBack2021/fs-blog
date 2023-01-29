@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react"
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import axios from "axios"
 import "./singlepost.css"
 import { Context } from "../../context/Context"
@@ -13,13 +13,14 @@ export default function SinglePost() {
     const [title, setTitle] = useState("")
     const [desc, setDesc] = useState("")
     const [updateMode, setUpdateMode] = useState(false)
+    const nav = useNavigate()
 
-    const api = process.env.REACT_APP_BACKEND_SERVER || "http://localhost:5000/api"
+    const api = process.env.REACT_APP_BACKEND_SERVER || "http://localhost:8080/api"
     const apiPublicFolder = process.env.REACT_APP_PUBLIC_FOLDER
 
     useEffect(() => {
         const getPost = async () => {
-            const api = process.env.REACT_APP_BACKEND_SERVER || "http://localhost:5000/api"
+            const api = process.env.REACT_APP_BACKEND_SERVER || "http://localhost:8080/api"
             const res = await axios.get(`${api}/posts/` + path)
             setPost(res.data)
             setTitle(res.data.title)
@@ -31,7 +32,7 @@ export default function SinglePost() {
     const handleDelete = async () => {
         try {
             await axios.delete(`${api}/posts/${post._id}`, { data: { username: user.username } })
-            window.location.replace("http://localhost:3000/")
+            nav("/")
         } catch (error) {
 
         }
@@ -43,7 +44,7 @@ export default function SinglePost() {
                 username: user.username,
                 title,
                 desc
-             })
+            })
             setUpdateMode(false)
         } catch (error) {
 
@@ -54,7 +55,7 @@ export default function SinglePost() {
         <div className="singlePost">
             <div className="singlePostWrapper">
                 {post.photo && (
-                    <img src={apiPublicFolder + post.photo} alt="" className="singlePostImg" />
+                    <img src={post.photo} alt="" className="singlePostImg" />
                 )}
                 {updateMode ? (
                     <input type="text" value={title} className="singlePostTitleInput" autoFocus onChange={(e) => setTitle(e.target.value)} />

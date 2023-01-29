@@ -18,7 +18,7 @@ export default function Settings() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        dispatch({type:"UPDATE_START"})
+        dispatch({ type: "UPDATE_START" })
         const updatedUser = {
             userId: user._id,
             username,
@@ -37,16 +37,16 @@ export default function Settings() {
                 console.log(error)
             }
         }
-            try {
-                const res = await axios.put("http://localhost:5000/api/users/" + user._id, updatedUser)
-                setSuccess(true)
-                dispatch({ type: "UPDATE_SUCCESS", payload: res.data})
-            } catch (error) {
-                console.log(error)
-                dispatch({ type: "UPDATE_FAILURE" })
-            }
+        try {
+            const res = await axios.put("http://localhost:8080/api/users/" + user._id, updatedUser)
+            setSuccess(true)
+            dispatch({ type: "UPDATE_SUCCESS", payload: res.data })
+        } catch (error) {
+            console.log(error)
+            dispatch({ type: "UPDATE_FAILURE" })
+        }
     }
-console.log(user)
+    console.log(user)
     return (
         <div className="settings">
             <div className="settingsWrapper">
@@ -57,20 +57,20 @@ console.log(user)
                 <form className="settingsForm" onSubmit={handleSubmit}>
                     <label>Profile Picture</label>
                     <div className="settingsPP">
-                        <img src={file ? URL.createObjectURL(file) : apiPublicFolder + user.profilePic } alt="" />
+                        <img src={file ? user.profilePic : ""} alt="" />
                         <label htmlFor="fileInput">
                             <i className="settingsPPIcon fa-solid fa-user"></i>
                         </label>
                         <input type="file" id="fileInput" style={{ display: "none" }} onChange={(e) => setFile(e.target.files[0])} />
                     </div>
                     <label>Username</label>
-                    <input type="text" placeholder={user.username} onChange={(e)=>setUsername(e.target.value)} />
+                    <input type="text" placeholder={user.username} onChange={(e) => setUsername(e.target.value)} />
                     <label>Email</label>
                     <input type="email" placeholder={user.email} onChange={(e) => setEmail(e.target.value)} />
                     <label>Password</label>
                     <input type="password" onChange={(e) => setPassword(e.target.value)} />
                     <button className="settingsSubmit" type="submit">Update</button>
-                    {success ? <span style={{textAlign:"center", marginTop:"20px"}}>Profile has been updated!</span> : ""}
+                    {success ? <span style={{ textAlign: "center", marginTop: "20px" }}>Profile has been updated!</span> : ""}
                 </form>
             </div>
             <Sidebar />

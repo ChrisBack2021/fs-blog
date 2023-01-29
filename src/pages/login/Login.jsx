@@ -10,7 +10,7 @@ export default function Login() {
   const passwordRef = useRef()
   const { dispatch, isFetching } = useContext(Context)
 
-  const api = process.env.REACT_APP_BACKEND_SERVER || "http://localhost:5000/api"
+  const api = process.env.REACT_APP_BACKEND_SERVER || "http://localhost:8080/api"
 
   const handleSubmit = async (e) => {
     e.preventDefault()

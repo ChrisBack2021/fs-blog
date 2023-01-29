@@ -8,7 +8,7 @@ export default function Post({ post }) {
     return (
         <div className="post">
             {post.photo && (
-                <img className="postImg" src={`${apiPublicFolder}` + post.photo} alt="" />
+                <img className="postImg" src={post.photo} alt="" />
             )}
             <div className="postInfo">
                 <div className="postCats">
