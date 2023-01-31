@@ -4,9 +4,9 @@ export default function Header() {
   return (
       <div className="header">
           <div className="headerTitles">
-              <span className="headerTitleLg"> Chris' Tech blog </span>
+              <span className="headerTitleLg"> My Tech Blog </span>
           </div>
-          <img className="headerImg" src="https://images.pexels.com/photos/1167355/pexels-photo-1167355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" />
+          <img className="headerImg" src="https://res.cloudinary.com/dm2ebszpf/image/upload/v1675136908/17973908_nirzon.jpg" alt="https://www.freepik.com/free-vector/network-mesh-wire-digital-technology-background_10136775.htm#query=technology%20banner&position=0&from_view=keyword - Image by starline"/>
       </div>
   )
 }
