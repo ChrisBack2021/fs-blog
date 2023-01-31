@@ -20,9 +20,8 @@ export default function Sidebar() {
     return (
         <div className="sidebar">
             <div className="sidebar">
-                <span className="sidebarTitle">About me</span>
-                <img src="https://placekitten.com/300/300" alt="" />
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci similique, corporis deserunt culpa tempora quam sequi minus facere quasi earum sunt, mollitia ratione? Quam dolor magnam iste harum ipsam sit.</p>
+                <span className="sidebarTitle">What is this project and who am I?</span>
+                <p className="sidebarParagraph">My name is Chris and I am a tech enthusiast that is using this project as a way to keep track of all the new technologies I am learning. The technologies can be seperated by the categories as seen below. </p>
             </div>
             <div className="sidebarItem">
                 <span className="sidebarTitle">Categories</span>
@@ -37,14 +36,15 @@ export default function Sidebar() {
 
                 </ul>
             </div>
-            <div className="sidebarItem">
+            {/* Currently inactive socials */}
+            {/* <div className="sidebarItem">
                 <span className="sidebarTitle">Follow us</span>
                 <div className="sidebarSocial">
                     <i className="sidebarIcon fa-brands fa-facebook-f"></i>
                     <i className="sidebarIcon fa-brands fa-twitter"></i>
                     <i className="sidebarIcon fa-brands fa-instagram"></i>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

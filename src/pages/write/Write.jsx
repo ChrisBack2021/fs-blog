@@ -9,13 +9,15 @@ export default function Write() {
     const [title, setTitle] = useState("")
     const [desc, setDesc] = useState("")
     const [file, setFile] = useState("")
+    const [categories, setCategories] = useState("")
     const { user } = useContext(Context)
 
 
     const newPost = {
         username: user.username,
         title,
-        desc
+        desc,
+        categories
     }
 
     const api = process.env.REACT_APP_BACKEND_SERVER || "http://localhost:8080/api"
@@ -48,7 +50,8 @@ export default function Write() {
                 username: user.username,
                 title: newPost.title,
                 desc: newPost.desc,
-                photo: newPost.photo
+                photo: newPost.photo,
+                categories: newPost.categories
             })
         })
         nav("/")
@@ -69,7 +72,14 @@ export default function Write() {
                     <input type="text" placeholder="Title" className="writeInput" autoFocus={true} onChange={e => setTitle(e.target.value)} />
                 </div>
                 <div className="writeFormGroup">
-                    <textarea placeholder="Tell your story" type="text" className="writeInput writeText" onChange={e => setDesc(e.target.value)} />
+                    <textarea placeholder="Begin blog post here" type="text" className="writeInput writeText" onChange={e => setDesc(e.target.value)} />
+                </div>
+                <div>
+                    <select name="categories" value={categories} onChange={e => setCategories(e.target.value)}>
+                        <option value="JavaScript">Javascript</option>
+                        <option value="React">React</option>
+                        <option value="Theory">Theory</option>
+                    </select>
                 </div>
                 <button className="writeSubmit" type="submit">
                     Publish

@@ -10,25 +10,35 @@
     z-index: 999;
 }
 
-.topLeft, .topRight{
+/* .topLeft,
+.topRight {
     flex: 3;
     display: flex;
     align-items: center;
     justify-content: center;
+} */
+
+.topRight {
+    margin-right: 20px;
+    display: flex;
 }
 
 .topCenter {
     flex: 6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
-.topIcon{
+.topIcon {
     font-size: 20px;
     margin-right: 10px;
     color: #444;
-    cursor: pointer;  
+    cursor: pointer;
 }
 
-.topImg{
+.topImg {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -36,22 +46,23 @@
     cursor: pointer;
 }
 
-.topList{
+.topList {
     display: flex;
     justify-content: center;
     margin: 0;
     padding: 0;
     list-style: none;
+    align-items: center;
 }
 
-.topListItem{
+.topListItem {
     margin-right: 20px;
     font-size: 18px;
     font-weight: 300px;
     cursor: pointer;
 }
 
-.topSearchIcon{
+.topSearchIcon {
     font-size: 18px;
     color: #666;
     cursor: pointer;

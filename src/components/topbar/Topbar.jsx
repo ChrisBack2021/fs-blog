@@ -13,23 +13,10 @@ export default function Topbar() {
 
     return (
         <div className="top">
-            <div className="topLeft">
-                {/* Social media icons */}
-                <i className="topIcon fa-brands fa-facebook-f"></i>
-                <i className="topIcon fa-brands fa-twitter"></i>
-                <i className="topIcon fa-brands fa-instagram"></i>
-            </div>
             <div className="topCenter">
                 <ul className="topList">
                     <li className="topListItem">
                         <Link className="link" to="/" > Home </Link>
-                    </li>
-                    <li className="topListItem">
-                        <Link className="link" to="/" > About </Link>
-                    </li>
-
-                    <li className="topListItem">
-                        <Link className="link" to="/" > Contact </Link>
                     </li>
                     <li className="topListItem">
                         <Link className="link" to="/write" > Write </Link>
@@ -56,7 +43,7 @@ export default function Topbar() {
                         </ul>
                     )
                 }
-                <i className="topSearchIcon fa-solid fa-magnifying-glass"></i>
+                {/* <i className="topSearchIcon fa-solid fa-magnifying-glass"></i> */}
             </div>
         </div>
     )

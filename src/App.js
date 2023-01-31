@@ -27,7 +27,8 @@ function App() {
         <Route path="/login" element={user ? <Home /> : <Login />} />
         <Route path="/settings" element={user ? <Settings /> : <Home />} />
         <Route path="/write" element={user ? <Write /> : <Register />} />
-        <Route path="/post/:Id" element={<Single/>} /> 
+        <Route path="/post/:Id" element={<Single />} /> 
+
       </Routes>
     </BrowserRouter>
     
