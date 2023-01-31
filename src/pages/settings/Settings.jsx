@@ -14,33 +14,37 @@ export default function Settings() {
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [success, setSuccess] = useState(false)
+    const [success, setSuccess] = useState(false) 
+
+    const updatedUser = {
+        userId: user._id,
+        username,
+        email,
+        password
+    }
+
+    const filePost = async () => {
+        const data = new FormData()
+        data.append("file", file)
+        data.append("upload_preset", "uxqhmpcy")
+        data.append("cloud_name", "dm2ebszpf")
+        return fetch("https://api.cloudinary.com/v1_1/dm2ebszpf/image/upload", {
+            method: "put",
+            body: data
+        })
+            .then((res) => res.json())
+            .then((data) => { updatedUser.profilePic = data.url })
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        await filePost()
         dispatch({ type: "UPDATE_START" })
-        const updatedUser = {
-            userId: user._id,
-            username,
-            email,
-            password
-        }
-        if (file) {
-            const data = new FormData()
-            const filename = Date.now() + file.name
-            data.append("name", filename)
-            data.append("file", file)
-            updatedUser.profilePic = filename
-            try {
-                await axios.post(`${api}/upload`, data)
-            } catch (error) {
-                console.log(error)
-            }
-        }
         try {
-            const res = await axios.put("http://localhost:8080/api/users/" + user._id, updatedUser)
+            const res = await axios.put(`${api}/users/${user._id}`, updatedUser)
             setSuccess(true)
             dispatch({ type: "UPDATE_SUCCESS", payload: res.data })
+            console.log(updatedUser)
         } catch (error) {
             console.log(error)
             dispatch({ type: "UPDATE_FAILURE" })

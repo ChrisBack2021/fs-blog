@@ -30,7 +30,7 @@ export default function Topbar() {
                 {
                     user ? (
                         <Link to="/settings">
-                            <img className="topImg" src={apiPublicFolder + user.profilePic} alt="" />
+                            <img className="topImg" src={user.profilePic} alt="" />
                         </Link>
                     ) : (
                         <ul className="topList">
