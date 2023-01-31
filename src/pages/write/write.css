@@ -1,18 +1,18 @@
-.write{
+.write {
     padding-top: 50px;
 }
 
-writeForm{
+writeForm {
     position: relative;
 }
 
-.writeFormGroup{
+.writeFormGroup {
     margin-left: 150px;
     display: flex;
     align-items: center;
 }
 
-.writeIcon{
+.writeIcon {
     width: 25px;
     height: 25px;
     border-radius: 50%;
@@ -24,7 +24,7 @@ writeForm{
     cursor: pointer;
 }
 
-.writeInput{
+.writeInput {
     font-size: 30px;
     border: none;
     padding: 20px;
@@ -35,11 +35,11 @@ writeForm{
     outline: none;
 }
 
-.writeText{
+.writeText {
     font-size: 20px;
 }
 
-.writeSubmit{
+.writeSubmit {
     margin-top: 50px;
     margin-left: 1100px;
     color: white;
@@ -51,10 +51,22 @@ writeForm{
     font-size: 16px;
 }
 
-.writeImg{
+.writeImg {
     margin-left: 50px;
     width: 85%;
     height: 100%;
     border-radius: 10px;
     object-fit: none;
+}
+
+.categoriesSelect {
+    margin-left: 170px;
+    margin-top: 10px;
+}
+
+.categoryList {
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-left: 170px;
+    margin-top: 20px;
 }

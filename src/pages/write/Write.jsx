@@ -75,7 +75,8 @@ export default function Write() {
                     <textarea placeholder="Begin blog post here" type="text" className="writeInput writeText" onChange={e => setDesc(e.target.value)} />
                 </div>
                 <div>
-                    <select name="categories" value={categories} onChange={e => setCategories(e.target.value)}>
+                    <p className="categoryList">Choose category</p>
+                    <select name="categories" className="categoriesSelect" value={categories} onChange={e => setCategories(e.target.value)}>
                         <option value="JavaScript">Javascript</option>
                         <option value="React">React</option>
                         <option value="Theory">Theory</option>
