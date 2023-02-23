@@ -4,6 +4,7 @@ import "./post.css"
 export default function Post({ post }) {
     const apiPublicFolder = process.env.REACT_APP_PUBLIC_FOLDER
 
+
     console.log([post])
     return (
         <div className="post">

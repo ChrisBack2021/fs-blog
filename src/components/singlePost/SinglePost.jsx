@@ -51,6 +51,30 @@ export default function SinglePost() {
         }
     }
 
+    function formatDescription(desc) {
+        // Split the description into an array of paragraphs
+        const paragraphs = desc.split("\n\n");
+
+        // If the description is only one paragraph, return it as is
+        if (paragraphs.length === 1) {
+            return <p>{desc}</p>;
+        }
+
+        // If the description has multiple paragraphs, create a new paragraph
+        // tag and line break between each paragraph
+        let formattedDesc = [];
+        paragraphs.forEach((paragraph, index) => {
+            if (index === paragraphs.length - 1) {
+                formattedDesc.push(<p key={index}>{paragraph}</p>);
+            } else {
+                formattedDesc.push(<p key={index}>{paragraph}</p>);
+                formattedDesc.push(<br key={`${index}-br`} />);
+            }
+        });
+
+        return formattedDesc;
+    }
+
     return (
         <div className="singlePost">
             <div className="singlePostWrapper">
@@ -85,7 +109,7 @@ export default function SinglePost() {
                 ) :
                     (
                         <p className="singlePostDesc">
-                            {desc}
+                            {formatDescription(desc)}
                         </p>
                     )
                 }
