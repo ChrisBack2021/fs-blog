@@ -80,6 +80,8 @@ export default function Write() {
                         <option value="JavaScript">Javascript</option>
                         <option value="React">React</option>
                         <option value="Theory">Theory</option>
+                        <option value="C#">C#</option>
+                        <option value="Selenium">Selenium</option>
                     </select>
                 </div>
                 <button className="writeSubmit" type="submit">
